@@ -1,0 +1,13 @@
+FU Terminal is a local-first terminal intelligence and safety engine. It is designed to answer common terminal requests deterministically before asking a language model.
+
+The first layer is retrieval. FU checks its curated knowledge base, local TLDR pages, man and info documentation, and a local Commandlinefu corpus. Only when those sources cannot resolve a request does FU use its Ollama fallback model, qwen two point five coder three B.
+
+Every resolved command passes through FU's centralized safety policy. Deterministic read-only rules can be explicitly approved for automatic execution. Write operations require approval. Curated destructive operations require explicit approval, and unknown or model-generated dangerous commands are hard blocked. The regression suite currently contains fifty-four passing checks covering safety, validation, Kubernetes state, diagnostics, learning, retrieval, and caller working directory behavior.
+
+FU also investigates rather than merely generating commands. The disk investigator reads current filesystem capacity, inode usage, deleted files still held open on the root filesystem, and Kubernetes disk-pressure conditions. Memory-backed memfd objects are excluded so they are not incorrectly reported as reclaimable root disk space. The result is an evidence-backed status with a confidence level.
+
+Execution success and goal verification are deliberately separate. FU records structured command history, and verify last independently checks whether the intended state is true when a verifier exists. Incident last combines a matching execution record with its verification evidence.
+
+The learning subsystem explains commands locally and can draw from curated material, TLDR, man pages, info pages, and stored command examples. Why last explains the most recent successful command without invoking a model.
+
+FU Terminal keeps the language model in the role of fallback assistant rather than authority. The core workflow is observe, diagnose, plan, approve, act, verify, record, and learn. That architecture makes FU useful not only as a command generator, but as a safer local operations companion for Linux, DevOps, Kubernetes, and everyday terminal work.

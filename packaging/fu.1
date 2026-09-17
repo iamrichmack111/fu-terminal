@@ -1,0 +1,66 @@
+.TH FU 1 "September 2026" "FU Terminal 1.0.0" "User Commands"
+.SH NAME
+fu \- local-first terminal intelligence, safety, learning, and diagnostics
+.SH SYNOPSIS
+.B fu
+.RI [ --auto ] " request"
+.br
+.B fu investigate disk
+.br
+.B fu evidence
+.br
+.B fu verify last
+.br
+.B fu why-last
+.br
+.B fu learn
+.I topic
+.br
+.B fu selftest
+.SH DESCRIPTION
+FU Terminal resolves terminal requests through deterministic knowledge before using a local Ollama model. Commands are mechanically validated and evaluated by a centralized safety policy before execution. Model-generated commands always require approval; high-risk model-generated commands are blocked.
+.SH SAFETY
+Only deterministic read-only rules explicitly marked for automatic execution can run under --auto. Curated destructive rules require explicit approval. Unknown or model-generated high-risk commands are hard blocked.
+.SH COMMANDS
+.TP
+.B investigate disk
+Read-only filesystem and Kubernetes pressure investigation with evidence and confidence.
+.TP
+.B evidence
+Collect current authoritative local evidence.
+.TP
+.B verify last
+Independently verify the goal of the last recorded command where a verifier exists.
+.TP
+.B history
+Show structured execution history.
+.TP
+.B incident last
+Show the last execution and matching verification evidence.
+.TP
+.B why-last
+Explain the last successful command locally.
+.TP
+.B learn TOPIC
+Teach a command/topic using curated knowledge, TLDR, man/info, and local examples.
+.TP
+.B selftest
+Run FU's regression suite without executing destructive test strings.
+.SH ENVIRONMENT
+.TP
+.B FU_MODEL
+Ollama fallback model. Default: qwen2.5-coder:3b.
+.TP
+.B OLLAMA_HOST
+Ollama API endpoint. Default: http://127.0.0.1:11434.
+.TP
+.B FU_WORKSPACE
+Workspace root. Default: ~/Desktop/FU-Workspace.
+.SH FILES
+.I ~/.local/share/fu-terminal
+installation directory
+.br
+.I ~/Desktop/FU-Workspace
+runtime workspace, logs, sessions, and generated artifacts
+.SH AUTHOR
+Richmack

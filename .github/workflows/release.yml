@@ -1,0 +1,17 @@
+name: Release Artifact
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Package
+        run: zip -r fu-terminal-${GITHUB_REF_NAME}.zip . -x '.git/*' '.venv/*' 'node_modules/*'
+      - uses: softprops/action-gh-release@v2
+        with:
+          body_path: RELEASE_NOTES.md
+          files: fu-terminal-${{ github.ref_name }}.zip

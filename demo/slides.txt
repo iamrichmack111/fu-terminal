@@ -1,0 +1,7 @@
+file '/mnt/data/fu_work/media/architecture.png'
+duration 53.451957666666665
+file '/mnt/data/fu_work/media/safety.png'
+duration 53.451957666666665
+file '/mnt/data/fu_work/media/investigate-disk.png'
+duration 53.451957666666665
+file '/mnt/data/fu_work/media/investigate-disk.png'

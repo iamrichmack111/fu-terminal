@@ -1,0 +1,40 @@
+direction: right
+user: User / shell
+fu: FU Terminal {
+  shape: rectangle
+  router: Local router
+  retrieval: Deterministic retrieval
+  safety: Central safety policy
+  execute: Approval + execution
+  verify: Evidence + verification
+  history: History + learning
+}
+knowledge: Knowledge {
+  curated: Curated KB
+  tldr: TLDR
+  man: man / info
+  clfu: Commandlinefu
+}
+ollama: Ollama fallback {
+  model: qwen2.5-coder:3b
+}
+system: Local system {
+  shell: Bash
+  k8s: Kubernetes / k3s
+  proc: /proc + filesystem
+}
+user -> fu.router
+fu.router -> fu.retrieval
+fu.retrieval -> knowledge.curated
+fu.retrieval -> knowledge.tldr
+fu.retrieval -> knowledge.man
+fu.retrieval -> knowledge.clfu
+fu.retrieval -> ollama.model: fallback only
+fu.retrieval -> fu.safety
+ollama.model -> fu.safety
+fu.safety -> fu.execute
+fu.execute -> system.shell
+fu.execute -> fu.verify
+fu.verify -> system.k8s
+fu.verify -> system.proc
+fu.verify -> fu.history

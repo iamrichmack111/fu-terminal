@@ -1,0 +1,28 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Compile
+        run: python -m compileall -q .
+      - name: Safety policy unit smoke tests
+        run: |
+          python - <<'PY'
+          from fu_safety import is_dangerous, evaluate
+          assert is_dangerous("rm -rf /tmp/example")
+          assert evaluate("rm -rf /tmp/example", "model")["hard_block"]
+          assert not is_dangerous("df -h")
+          print("safety smoke tests passed")
+          PY
+      - name: FU selftest
+        run: FU_CALLER_CWD="$PWD" python fu_selftest.py

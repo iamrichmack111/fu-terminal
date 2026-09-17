@@ -1,0 +1,51 @@
+[
+  {
+    "id": "disk-usage",
+    "patterns": ["disk usage", "disk space", "free disk", "how much disk"],
+    "command": "df -h",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "hostname",
+    "patterns": ["show hostname", "what is the hostname"],
+    "command": "hostname",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "docker-containers",
+    "patterns": ["docker containers", "running containers"],
+    "command": "docker ps",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "docker-images",
+    "patterns": ["docker images"],
+    "command": "docker images",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "docker-disk",
+    "patterns": ["docker disk usage"],
+    "command": "docker system df",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "git-status",
+    "patterns": ["git status", "repository status"],
+    "command": "git status",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "recent-commits",
+    "patterns": ["recent commits", "recent git commits"],
+    "command": "git log --oneline -n 10",
+    "risk": "read",
+    "auto": true
+  }
+]

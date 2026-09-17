@@ -1,0 +1,13 @@
+services:
+  fu:
+    build: .
+    environment:
+      OLLAMA_HOST: http://host.docker.internal:11434
+      FU_MODEL: qwen2.5-coder:3b
+      FU_WORKSPACE: /workspace
+    volumes:
+      - fu-workspace:/workspace
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+volumes:
+  fu-workspace:

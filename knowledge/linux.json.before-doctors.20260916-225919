@@ -1,0 +1,146 @@
+[
+  {
+    "id": "disk-doctor",
+    "patterns": [
+      "diagnose disk space",
+      "diagnose disk usage",
+      "run disk doctor",
+      "disk doctor",
+      "why is my disk full",
+      "what is using my disk space",
+      "diagnose storage"
+    ],
+    "command": "python3 \"/home/richmack/Applications/granite-fu/disk_doctor.py\"",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "duplicate-cleanup-plan",
+    "patterns": [
+      "make a duplicate cleanup plan",
+      "create a duplicate cleanup plan",
+      "plan duplicate cleanup",
+      "make duplicate removal plan",
+      "show duplicate cleanup plan"
+    ],
+    "command": "python3 \"/home/richmack/Applications/granite-fu/duplicate_plan.py\"",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "review-safe-duplicate-files",
+    "patterns": [
+      "show me the safest duplicate files i can remove",
+      "show safest duplicate files i can remove",
+      "safest duplicate files i can remove",
+      "safest duplicate files to remove",
+      "review duplicate files for removal",
+      "which duplicate files can i remove",
+      "which duplicate files are safe to remove"
+    ],
+    "command": "python3 \"/home/richmack/Applications/granite-fu/duplicate_review.py\"",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "largest-download-files",
+    "regex": "(?:show|find|list|give).*?(\\d+).*?largest files.*?downloads",
+    "command": "find \"$HOME/Downloads\" -type f -printf '%s %p\\n' | sort -nr | head -n {n}",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "memory",
+    "patterns": [
+      "memory usage",
+      "ram usage"
+    ],
+    "command": "free -h",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "listening-ports",
+    "patterns": [
+      "listening ports",
+      "open ports"
+    ],
+    "command": "ss -lntp",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "ip-address",
+    "patterns": [
+      "ip address",
+      "show my ip"
+    ],
+    "command": "ip addr",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "k8s-pods",
+    "patterns": [
+      "kubernetes pods",
+      "k8s pods"
+    ],
+    "command": "kubectl get pods -A",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "k8s-nodes",
+    "patterns": [
+      "kubernetes nodes",
+      "k8s nodes"
+    ],
+    "command": "kubectl get nodes -o wide",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "k8s-services",
+    "patterns": [
+      "kubernetes services",
+      "k8s services"
+    ],
+    "command": "kubectl get svc -A",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "files-last-two-days",
+    "patterns": [
+      "files created in the last two days",
+      "files modified in the last two days",
+      "files from the last two days"
+    ],
+    "command": "find \"$HOME\" -type f -mtime -2 -print 2>/dev/null",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "files-today",
+    "patterns": [
+      "files created today",
+      "files modified today",
+      "files changed today"
+    ],
+    "command": "find \"$HOME\" -type f -mtime -1 -print 2>/dev/null",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "duplicate-files-downloads",
+    "patterns": [
+      "find duplicate files in downloads",
+      "find duplicates in downloads",
+      "show duplicate files in downloads",
+      "duplicate files in downloads"
+    ],
+    "command": "python3 \"/home/richmack/Applications/granite-fu/duplicate_scan.py\" \"$HOME/Downloads\"",
+    "risk": "read",
+    "auto": true
+  }
+]

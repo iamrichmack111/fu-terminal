@@ -1,0 +1,30 @@
+[
+  {
+    "id": "largest-download-files",
+    "regex": "(?:show|find|list|give).*?(\\d+).*?largest files.*?downloads",
+    "command": "find \"$HOME/Downloads\" -type f -exec stat -f '%z %N' {} + | sort -nr | head -n {n}",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "memory",
+    "patterns": ["memory usage", "ram usage"],
+    "command": "vm_stat",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "listening-ports",
+    "patterns": ["listening ports", "open ports"],
+    "command": "lsof -nP -iTCP -sTCP:LISTEN",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "ip-address",
+    "patterns": ["ip address", "show my ip"],
+    "command": "ifconfig",
+    "risk": "read",
+    "auto": true
+  }
+]

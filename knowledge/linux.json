@@ -1,0 +1,326 @@
+[
+  {
+    "id": "cleanup-letter-raider-temp",
+    "patterns": [
+      "remove letter raider temp copy",
+      "clean letter raider temp",
+      "delete letter raider temp copy",
+      "remove stale letter raider push"
+    ],
+    "command": "sudo rm -rf -- \"/tmp/letter-raider-push\"",
+    "risk": "destructive",
+    "auto": false
+  },
+  {
+    "id": "k8s-storage-doctor",
+    "patterns": [
+      "kubernetes storage doctor",
+      "k8s storage doctor",
+      "diagnose kubernetes disk pressure",
+      "diagnose k8s disk pressure",
+      "why does kubernetes have disk pressure",
+      "inspect kubernetes storage"
+    ],
+    "command": "python3 \"/home/richmack/Applications/granite-fu/k8s_storage_doctor.py\"",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "cleanup-pip-cache",
+    "patterns": [
+      "clean pip cache",
+      "clear pip cache",
+      "purge pip cache",
+      "remove pip cache"
+    ],
+    "command": "python3 -m pip cache purge",
+    "risk": "destructive",
+    "auto": false
+  },
+  {
+    "id": "cleanup-plan",
+    "patterns": [
+      "cleanup plan",
+      "make a cleanup plan",
+      "disk cleanup plan",
+      "storage cleanup plan",
+      "plan disk cleanup",
+      "plan storage cleanup"
+    ],
+    "command": "python3 \"/home/richmack/Applications/granite-fu/cleanup_plan.py\"",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "ollama-doctor",
+    "patterns": [
+      "ollama doctor",
+      "inspect ollama models",
+      "inspect ollama storage",
+      "show ollama models and sizes",
+      "diagnose ollama storage"
+    ],
+    "command": "python3 \"/home/richmack/Applications/granite-fu/ollama_doctor.py\"",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "storage-opportunities",
+    "patterns": [
+      "storage opportunities",
+      "show storage opportunities",
+      "find storage opportunities",
+      "what can i safely clean",
+      "what can i clean up",
+      "where can i free space"
+    ],
+    "command": "python3 \"/home/richmack/Applications/granite-fu/storage_opportunities.py\"",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "analyze-cache-storage",
+    "patterns": [
+      "analyze cache storage",
+      "analyze my cache",
+      "show largest files in /home/richmack/.cache",
+      "show largest files in ~/.cache"
+    ],
+    "command": "python3 \"/home/richmack/Applications/granite-fu/storage_analyzer.py\" \"/home/richmack/.cache\"",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "analyze-ollama-storage",
+    "patterns": [
+      "analyze ollama storage",
+      "ollama storage",
+      "show largest ollama files",
+      "what is using ollama space"
+    ],
+    "command": "python3 \"/home/richmack/Applications/granite-fu/storage_analyzer.py\" \"/home/richmack/.ollama\"",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "analyze-local-storage",
+    "patterns": [
+      "analyze local storage",
+      "analyze .local",
+      "what is using .local space"
+    ],
+    "command": "python3 \"/home/richmack/Applications/granite-fu/storage_analyzer.py\" \"/home/richmack/.local\"",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "k8s-pods-events",
+    "patterns": [
+      "show kubernetes pods and recent events",
+      "kubernetes pods and recent events",
+      "show k8s pods and recent events",
+      "k8s pods and events",
+      "show kubernetes events",
+      "recent kubernetes events"
+    ],
+    "command": "kubectl get pods -A && printf '\\n--- RECENT EVENTS ---\\n' && kubectl get events -A --sort-by=.lastTimestamp | tail -n 30",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "kubernetes-doctor",
+    "patterns": [
+      "kubernetes doctor",
+      "k8s doctor",
+      "diagnose kubernetes",
+      "diagnose kubernetes cluster",
+      "check kubernetes health",
+      "check k8s health"
+    ],
+    "command": "python3 \"/home/richmack/Applications/granite-fu/doctor.py\" kubernetes",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "docker-doctor",
+    "patterns": [
+      "docker doctor",
+      "diagnose docker",
+      "check docker health",
+      "troubleshoot docker"
+    ],
+    "command": "python3 \"/home/richmack/Applications/granite-fu/doctor.py\" docker",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "network-doctor",
+    "patterns": [
+      "network doctor",
+      "diagnose network",
+      "diagnose networking",
+      "check network health",
+      "troubleshoot network"
+    ],
+    "command": "python3 \"/home/richmack/Applications/granite-fu/doctor.py\" network",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "system-doctor",
+    "patterns": [
+      "system doctor",
+      "diagnose system",
+      "check system health",
+      "system health check",
+      "diagnose this computer"
+    ],
+    "command": "python3 \"/home/richmack/Applications/granite-fu/doctor.py\" system",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "disk-doctor",
+    "patterns": [
+      "diagnose disk space",
+      "diagnose disk usage",
+      "run disk doctor",
+      "disk doctor",
+      "why is my disk full",
+      "what is using my disk space",
+      "diagnose storage"
+    ],
+    "command": "python3 \"/home/richmack/Applications/granite-fu/disk_doctor.py\"",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "duplicate-cleanup-plan",
+    "patterns": [
+      "make a duplicate cleanup plan",
+      "create a duplicate cleanup plan",
+      "plan duplicate cleanup",
+      "make duplicate removal plan",
+      "show duplicate cleanup plan"
+    ],
+    "command": "python3 \"/home/richmack/Applications/granite-fu/duplicate_plan.py\"",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "review-safe-duplicate-files",
+    "patterns": [
+      "show me the safest duplicate files i can remove",
+      "show safest duplicate files i can remove",
+      "safest duplicate files i can remove",
+      "safest duplicate files to remove",
+      "review duplicate files for removal",
+      "which duplicate files can i remove",
+      "which duplicate files are safe to remove"
+    ],
+    "command": "python3 \"/home/richmack/Applications/granite-fu/duplicate_review.py\"",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "largest-download-files",
+    "regex": "(?:show|find|list|give).*?(\\d+).*?largest files.*?downloads",
+    "command": "find \"$HOME/Downloads\" -type f -printf '%s %p\\n' | sort -nr | head -n {n}",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "memory",
+    "patterns": [
+      "memory usage",
+      "ram usage"
+    ],
+    "command": "free -h",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "listening-ports",
+    "patterns": [
+      "listening ports",
+      "open ports"
+    ],
+    "command": "ss -lntp",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "ip-address",
+    "patterns": [
+      "ip address",
+      "show my ip"
+    ],
+    "command": "ip addr",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "k8s-pods",
+    "patterns": [
+      "kubernetes pods",
+      "k8s pods"
+    ],
+    "command": "kubectl get pods -A",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "k8s-nodes",
+    "patterns": [
+      "kubernetes nodes",
+      "k8s nodes"
+    ],
+    "command": "kubectl get nodes -o wide",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "k8s-services",
+    "patterns": [
+      "kubernetes services",
+      "k8s services"
+    ],
+    "command": "kubectl get svc -A",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "files-last-two-days",
+    "patterns": [
+      "files created in the last two days",
+      "files modified in the last two days",
+      "files from the last two days"
+    ],
+    "command": "find \"$HOME\" -type f -mtime -2 -print 2>/dev/null",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "files-today",
+    "patterns": [
+      "files created today",
+      "files modified today",
+      "files changed today"
+    ],
+    "command": "find \"$HOME\" -type f -mtime -1 -print 2>/dev/null",
+    "risk": "read",
+    "auto": true
+  },
+  {
+    "id": "duplicate-files-downloads",
+    "patterns": [
+      "find duplicate files in downloads",
+      "find duplicates in downloads",
+      "show duplicate files in downloads",
+      "duplicate files in downloads"
+    ],
+    "command": "python3 \"/home/richmack/Applications/granite-fu/duplicate_scan.py\" \"$HOME/Downloads\"",
+    "risk": "read",
+    "auto": true
+  }
+]

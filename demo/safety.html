@@ -1,0 +1,12 @@
+<!doctype html><html><head><meta charset="utf-8"><title>FU Terminal Demo</title><style>
+body{margin:0;background:#090d12;color:#e6edf3;font:20px ui-monospace,SFMono-Regular,Menlo,monospace}.wrap{width:1500px;margin:55px auto}.brand{font:700 52px system-ui;margin-bottom:8px}.sub{color:#8b949e;font:24px system-ui;margin-bottom:34px}.term{background:#0d1117;border:1px solid #30363d;border-radius:18px;padding:32px;box-shadow:0 25px 80px #0008}.bar{color:#7d8590;margin-bottom:24px}.g{color:#3fb950}.y{color:#d29922}.c{color:#58a6ff}.p{color:#bc8cff}.dim{color:#8b949e}.line{border-top:1px solid #30363d;margin:20px 0}.big{font-size:28px;font-weight:700}code{white-space:pre-wrap;line-height:1.55}.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.card{border:1px solid #30363d;border-radius:12px;padding:20px}.tag{font:14px system-ui;border:1px solid #30363d;border-radius:999px;padding:5px 10px;margin-right:6px}</style></head><body><div class="wrap"><div class="brand">◆ FU Terminal</div><div class="sub">Local-first terminal intelligence, safety, diagnostics, verification, and learning.</div><div class="term"><div class="bar">richmack@linux:~$ <span class="c">fu selftest</span></div><code><span class="big">◆ FU SELF TEST</span>
+<span class="dim">Central safety policy regression suite</span>
+
+<span class="g">✓</span> root filesystem usage                  83.0%  [df]
+<span class="g">✓</span> root inode usage                       19.0%  [df -i]
+<span class="g">✓</span> rootfs deleted open bytes             56.5 MB  [/proc/*/fd]
+<span class="g">✓</span> kubernetes family DiskPressure          False  [kubectl]
+<span class="g">✓</span> kubernetes richmack DiskPressure        False  [kubectl]
+
+<span class="g">STATUS       HEALTHY</span>
+<span class="c">CONFIDENCE   HIGH</span></code></div></div></body></html>
